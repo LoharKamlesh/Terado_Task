@@ -1,0 +1,25 @@
+extends base
+
+block content
+  #wrapper
+    #left__container
+      
+      a#DashBoard.item__Dashboard__overview(href='/dashboard') DashBoard
+        img#dashboard__img(src='/img/dashboard.png' alt='options logo')
+      a#Campaign.item__Campaign(href='/campaign') Campaign
+        img#star__img(src='/img/star.png' alt='options logo')
+      a#Content.item__Content__overview(href='/content') Content
+        img#folder__img(src='/img/folder.png' alt='options logo')
+      a#Devices.item__Devices__overview(href='/devices')  Devices
+        img#desktop__img(src='/img/desktop.png' alt='options logo')
+      a#Devices.item__Statistics__overview(href='/statistics') Statistics
+        img#statistics__img(src='/img/statistics.png' alt='options logo')
+
+
+    #right__container
+      label(for='gsearch') 
+      input#gsearch(type='search' name='search campaign' placeholder='search campaign')
+      .campaign__details
+        | Campaign Name
+        label(for='gsearch') 
+        input#gsearch__campaign(type='search' name='search campaign' placeholder='Enter campaign name')

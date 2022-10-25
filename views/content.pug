@@ -1,0 +1,28 @@
+extends base
+
+block content
+  #wrapper
+    #left__container
+      a#DashBoard.item__Dashboard__overview(href='/dashboard') DashBoard
+        img#dashboard__img(src='/img/dashboard.png' alt='options logo')
+      a#Campaign.item__Campaign__overview(href='/campaign') Campaign
+        img#star__img(src='/img/star.png' alt='options logo')
+      a#Content.item__Content(href='/content') Content
+        img#folder__img(src='/img/folder.png' alt='options logo')
+      a#Devices.item__Devices__overview(href='/devices')  Devices
+        img#desktop__img(src='/img/desktop.png' alt='options logo')
+      a#Devices.item__Statistics__overview(href='/statistics') Statistics
+        img#statistics__img(src='/img/statistics.png' alt='options logo')
+
+    #right__container
+        .sub__right__container__Content
+            .content Content
+            label(for='gsearch') 
+            input#gsearch(type='search' name='search files and folders' placeholder='search files and folders')
+            img#options__img(src='/img/options1.png' alt='options logo')
+        .sub__right__container__content
+          button.nav__el--content.nav__el--cta--content ➕Add Content
+          button.nav__el--content.nav__el--cta--content 📂 Create Folder
+        .sub__right__container__Folder Folder 🔽
+        .sub__right__container__Files Files 🔽
+        

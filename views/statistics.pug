@@ -1,0 +1,48 @@
+extends base
+
+block content
+  #wrapper
+    #left__container
+      a#DashBoard.item__Dashboard__overview(href='/dashboard') DashBoard
+        img#dashboard__img(src='/img/dashboard.png' alt='options logo')
+      a#Campaign.item__Campaign__overview(href='/campaign') Campaign
+        img#star__img(src='/img/star.png' alt='options logo')
+      a#Content.item__Content__overview(href='/content') Content
+        img#folder__img(src='/img/folder.png' alt='options logo')
+      a#Devices.item__Devices__overview(href='/devices') Devices
+        img#desktop__img(src='/img/desktop.png' alt='options logo')
+      a#Statistics.item__Statistics(href='/statistics') Statistics
+        img#statistics__img(src='/img/statistics.png' alt='options logo')
+           
+
+    #right__container
+        table.statistics__table
+            tr 
+                th.statistics__header Sr no 
+                th.statistics__header Device Detail
+                th.statistics__header Online Time 
+                th.statistics__header Offline Time
+                th.statistics__header Connection Status 
+                th.statistics__header Device Battery
+            tr
+                td 1
+                td wing A
+                td 1:00
+                td 03:00
+                td Connected 
+                td 100%
+            tr
+                td 2
+                td wing B
+                td 12:00
+                td 06:00
+                td Disconnected 
+                td 60%
+            tr
+                td 3
+                td wing C
+                td 09:00
+                td 03:00
+                td Connected 
+                td 90%
+
