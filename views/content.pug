@@ -21,8 +21,14 @@ block content
             input#gsearch(type='search' name='search files and folders' placeholder='search files and folders')
             img#options__img(src='/img/options1.png' alt='options logo')
         .sub__right__container__content
-          button.nav__el--content.nav__el--cta--content ➕Add Content
-          button.nav__el--content.nav__el--cta--content 📂 Create Folder
-        .sub__right__container__Folder Folder 🔽
+          label.nav__el--content.nav__el--cta--content(type='file') Add Content 
+       
+          input.nav__el--content.nav__el--cta--content(type='file' id='files' multiple='multiple')
+         
+
+          
+        .sub__right__container__Folder Folder 🔽     
+
         .sub__right__container__Files Files 🔽
+          output#result
         

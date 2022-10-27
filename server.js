@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-//const express = require("express");
 
 process.on("unhandledException", (err) => {
   console.log("UNHANDLER Exception💥  Shutting down...");

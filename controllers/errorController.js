@@ -17,15 +17,13 @@ const handleMongoServerErrorDB = (err) => {
   return new AppError(message, 400);
 };
 const handleValidationErrorDB = (err) => {
-  //console.log(err);
   const value = err.split(":").slice(3, 7).join(",").substring(0, 151);
-  //console.log('💥', value);
+
   const message = `Validation Error. ${value}`;
   return new AppError(message, 400);
 };
 
 const handleJWTError = () => {
-  //console.log(err);
   const message = `Invalid Token Error`;
   return new AppError(message, 401);
 };
@@ -37,7 +35,6 @@ const handleTokenExpiredError = () => {
 
 const sendErrorDev = (err, req, res) => {
   if (req.originalUrl.startsWith("/api")) {
-    //console.log('Dev error', err);
     return res.status(err.statusCode).json({
       status: err.status,
       error: err,
@@ -60,7 +57,6 @@ const sendErrorProd = (err, req, res) => {
         status: err.status,
         message: err.message,
       });
-      //Programming or other unknown error: don't leak error details
     } else {
       //1) log error
       console.error("Error💥", err);
@@ -100,26 +96,27 @@ module.exports = (err, req, res, next) => {
 
   if (process.env.NODE_ENV === "development") {
     sendErrorDev(err, req, res);
-  } else if (process.env.NODE_ENV === "production") {
-    let error = { ...err };
-    error.message = err.message;
-    //console.log(err.stack);
-    if (err.stack.includes("CastError")) {
-      error = handleCastErrorDB(err.stack);
-    }
-    if (err.stack.includes("MongoServerError")) {
-      error = handleMongoServerErrorDB(err.stack);
-    }
-    if (err.stack.includes("ValidationError")) {
-      error = handleValidationErrorDB(err.stack);
-    }
-    if (err.stack.includes("JsonWebTokenError")) {
-      error = handleJWTError();
-    }
-    if (err.stack.includes("TokenExpiredError")) {
-      error = handleTokenExpiredError();
-    }
-
-    sendErrorProd(error, req, res);
   }
+  // } else if (process.env.NODE_ENV === "production") {
+  //   let error = { ...err };
+  //   error.message = err.message;
+  //   //console.log(err.stack);
+  //   if (err.stack.includes("CastError")) {
+  //     error = handleCastErrorDB(err.stack);
+  //   }
+  //   if (err.stack.includes("MongoServerError")) {
+  //     error = handleMongoServerErrorDB(err.stack);
+  //   }
+  //   if (err.stack.includes("ValidationError")) {
+  //     error = handleValidationErrorDB(err.stack);
+  //   }
+  //   if (err.stack.includes("JsonWebTokenError")) {
+  //     error = handleJWTError();
+  //   }
+  //   if (err.stack.includes("TokenExpiredError")) {
+  //     error = handleTokenExpiredError();
+  //   }
+
+  //   sendErrorProd(error, req, res);
+  // }
 };

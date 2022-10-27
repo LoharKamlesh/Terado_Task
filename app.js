@@ -46,7 +46,7 @@ app.use(
       objectSrc: [],
       imgSrc: ["'self'", "blob:", "data:", "https:"],
       fontSrc: ["'self'", ...fontSrcUrls],
-      //frameSrc: ['*/stripe.com', '*.stripe.network'],
+  
     },
   })
 );
@@ -62,23 +62,17 @@ app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use(cookieParser());
 
 app.use((req, res, next) => {
-  req.requestTime = new Date().toISOString(); //to know when was the request exactly made.
-  //console.log(req.cookies);
+  req.requestTime = new Date().toISOString();
   next();
 });
 
 app.use("/", viewRouter);
 
-// app.use("/api/v1/tours", tourRouter); //this is called mounting a router..which is to  mount a new router in base router
+
 app.use("/api/v1/users", userRouter);
 
-// app.use("/api/v1/reviews", reviewRouter);
-// app.use("/api/v1/bookings", bookingRouter);
-//app.use('/webhook', webhookRouter);
 app.all("*", (req, res, next) => {
-  // const err = new Error(`Can't fine ${req.originalUrl} on this server!`);
-  // err.status = 'fail';
-  // err.statusCode = 404;
+
   next(new AppError(`Can't find ${req.originalUrl} on this server!`), 404);
 });
 

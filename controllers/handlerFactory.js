@@ -6,7 +6,6 @@ exports.createOne = (Model) => async (req, res, next) => {
     //1) const newTour= new Tour();
     // newTour.save()
 
-    //2)
     const doc = await Model.create(req.body);
     res.status(201).json({
       status: "success",
@@ -16,9 +15,5 @@ exports.createOne = (Model) => async (req, res, next) => {
     });
   } catch (err) {
     return next(new AppError(`${err}`, 404));
-    // res.status(400).json({
-    //   status: 'fail',
-    //   error: err,
-    // });
   }
 };

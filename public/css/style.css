@@ -479,11 +479,12 @@ body {
 #loggedIn__Time {
   background-color: green;
   font-size: 1.6rem;
+  font-weight: bold;
   text-transform: uppercase;
   color: white;
   height: 20rem;
   width: 25rem;
-  padding: 1rem;
+  padding: 3rem;
   margin: 1rem;
   border-width: 5px;
   border-radius: 25px;
@@ -492,11 +493,12 @@ body {
 .logout__data {
   background-color: red;
   font-size: 1.6rem;
+  font-weight: bold;
   text-transform: uppercase;
   color: black;
   height: 20rem;
   width: 25rem;
-  padding: 1rem;
+  padding: 2rem;
   margin: 1rem;
   border-width: 5px;
   border-radius: 25px;
@@ -514,6 +516,15 @@ body {
   border-width: 5px;
   border-radius: 25px;
   text-align: center;
+}
+#result {
+  display: flex;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.thumbnail {
+  height: 192px;
 }
 .heading-primary {
   font-size: 1.8rem;
@@ -617,6 +628,10 @@ body {
   -webkit-transition: all 0.3s;
   text-transform: uppercase;
   transition: all 0.3s;
+}
+.nav__el--cta--device {
+  border-radius: 10rem;
+  margin-top: 0px;
 }
 
 .signup-form {
@@ -794,11 +809,12 @@ body {
   text-transform: uppercase;
   margin-left: 1rem;
   width: fit-content;
+  height: fit-content;
   color: white;
 }
 
 .sub__right__container__Files {
-  margin-top: 10rem;
+  margin-top: 2rem;
   font-size: 1.6rem;
   text-transform: uppercase;
   margin-left: 1rem;
